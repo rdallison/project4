@@ -23,8 +23,8 @@ module.exports = {
                 loader: "babel-loader"
             },
             {
-                test: /\.scss$/,
-                use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+                test: /\.(sa|sc|s)ss$/,
+                use: ["style-loader", "css-loader", "sass-loader"],
             }
            
         ]

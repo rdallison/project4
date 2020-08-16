@@ -11,6 +11,7 @@ const app = express()
 app.use(express.static('dist'))
 
 console.log(__dirname)
+console.log(`key = ${textAPI}`);
 
 app.get('/', function (req, res) {
     // res.sendFile('dist/index.html')
