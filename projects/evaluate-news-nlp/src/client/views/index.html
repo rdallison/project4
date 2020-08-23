@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
+        <meta name= "viewport" content="width=device-width, initial-scale=1.0">
         <title>Project 4</title>
     </head>
 
@@ -19,8 +20,9 @@
         <main>
             <section>
                 <form class="" onsubmit="return handleSubmit(event)">
+                    <label id="label" for="main text box">Type your text here</label>
                     <input id="name" type="text" name="input" value="" onblur="Client.onBlur" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
+                    <input id="submit" type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
                 </form>
             <section>
 
@@ -34,17 +36,19 @@
             <p>This is a footer</p>
         </footer>
 
+        <script type="text/javascript">
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+           </script>
+
     </body>
 
-    <script>
-        // Check that service workers are supported
-        if ('serviceWorker' in navigator) {
-            // Use the window load event to keep the page load performant
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js');
-            });
-        }
-       </script>
+   
 
-       
+
 </html>

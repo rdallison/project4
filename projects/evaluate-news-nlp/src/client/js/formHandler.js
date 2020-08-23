@@ -1,5 +1,3 @@
-import { Body } from "node-fetch"
-
 function handleSubmit(event) {
     event.preventDefault()
 
@@ -11,19 +9,17 @@ function handleSubmit(event) {
         console.log(response)
          displayResults(response)
         })
-
-    //Client.checkForName(formText)
-    //console.log("::: Form Submitted :::")
-    //fetch('http://localhost:8081/test')
-    //.then(res => res.json())
-    //.then(function(res) {
-    //    document.getElementById('results').innerHTML = res.message
-    //})
 }
 
 function displayResults(data = {}) {
     const form = document.getElementById('results');
-    form.innerHTML = data.model;
+    form.innerHTML = 
+    `agreement: ${data.agreement}
+     irony: ${data.irony}
+     model: ${data.model}
+     subjectivity: ${data.subjectivity}
+     confidence #:${data.confidence}
+    `
 } 
 
 export { handleSubmit }
