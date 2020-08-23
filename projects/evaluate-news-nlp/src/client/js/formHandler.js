@@ -1,16 +1,29 @@
+import { Body } from "node-fetch"
+
 function handleSubmit(event) {
     event.preventDefault()
 
-    // check what text was put into the form field
-    let formText = document.getElementById('name').value
-    Client.checkForName(formText)
+        const text = document.getElementById('name').value;
+        // send that information to back end
+        fetch(`/response/:${text}`)
+        .then(results => results.json())
+        .then(response => {
+        console.log(response)
+         displayResults(response)
+        })
 
-    console.log("::: Form Submitted :::")
+    //Client.checkForName(formText)
+    //console.log("::: Form Submitted :::")
     //fetch('http://localhost:8081/test')
     //.then(res => res.json())
     //.then(function(res) {
     //    document.getElementById('results').innerHTML = res.message
     //})
 }
+
+function displayResults(data = {}) {
+    const form = document.getElementById('results');
+    form.innerHTML = data.model;
+} 
 
 export { handleSubmit }
